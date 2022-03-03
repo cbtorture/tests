@@ -11,6 +11,7 @@ Running: program.c
 | gcc | -O1 | c18 | right-to-left execution ordering |`5` |
 | gcc | -O1 | c11 | right-to-left execution ordering |`5` |
 | gcc | -O1 | c1x | right-to-left execution ordering |`5` |
+| gcc | -O1 | gnu11 | right-to-left execution ordering |`5` |
 | gcc | -O2 | c99 | right-to-left execution ordering |`5` |
 | gcc | -O2 | c9x | right-to-left execution ordering |`5` |
 | gcc | -O2 | c89 | right-to-left execution ordering |`5` |
@@ -20,6 +21,7 @@ Running: program.c
 | gcc | -O2 | c18 | right-to-left execution ordering |`5` |
 | gcc | -O2 | c11 | right-to-left execution ordering |`5` |
 | gcc | -O2 | c1x | right-to-left execution ordering |`5` |
+| gcc | -O2 | gnu11 | right-to-left execution ordering |`5` |
 | gcc | -O3 | c99 | right-to-left execution ordering |`5` |
 | gcc | -O3 | c9x | right-to-left execution ordering |`5` |
 | gcc | -O3 | c89 | right-to-left execution ordering |`5` |
@@ -29,6 +31,7 @@ Running: program.c
 | gcc | -O3 | c18 | right-to-left execution ordering |`5` |
 | gcc | -O3 | c11 | right-to-left execution ordering |`5` |
 | gcc | -O3 | c1x | right-to-left execution ordering |`5` |
+| gcc | -O3 | gnu11 | right-to-left execution ordering |`5` |
 | clang | -O1 | c99 | left-to-right execution ordering |`4` |
 | clang | -O1 | c9x | left-to-right execution ordering |`4` |
 | clang | -O1 | c89 | left-to-right execution ordering |`4` |
@@ -38,6 +41,7 @@ Running: program.c
 | clang | -O1 | c18 | left-to-right execution ordering |`4` |
 | clang | -O1 | c11 | left-to-right execution ordering |`4` |
 | clang | -O1 | c1x | left-to-right execution ordering |`4` |
+| clang | -O1 | gnu11 | left-to-right execution ordering |`4` |
 | clang | -O2 | c99 | left-to-right execution ordering |`4` |
 | clang | -O2 | c9x | left-to-right execution ordering |`4` |
 | clang | -O2 | c89 | left-to-right execution ordering |`4` |
@@ -47,6 +51,7 @@ Running: program.c
 | clang | -O2 | c18 | left-to-right execution ordering |`4` |
 | clang | -O2 | c11 | left-to-right execution ordering |`4` |
 | clang | -O2 | c1x | left-to-right execution ordering |`4` |
+| clang | -O2 | gnu11 | left-to-right execution ordering |`4` |
 | clang | -O3 | c99 | left-to-right execution ordering |`4` |
 | clang | -O3 | c9x | left-to-right execution ordering |`4` |
 | clang | -O3 | c89 | left-to-right execution ordering |`4` |
@@ -56,6 +61,8 @@ Running: program.c
 | clang | -O3 | c18 | left-to-right execution ordering |`4` |
 | clang | -O3 | c11 | left-to-right execution ordering |`4` |
 | clang | -O3 | c1x | left-to-right execution ordering |`4` |
+| clang | -O3 | gnu11 | left-to-right execution ordering |`4` |
+| ccomp | -O1 | Default | left-to-right execution ordering |`4` |
 | ccomp | -O1 | Default | left-to-right execution ordering |`4` |
 | ccomp | -O1 | Default | left-to-right execution ordering |`4` |
 | ccomp | -O1 | Default | left-to-right execution ordering |`4` |
@@ -74,6 +81,8 @@ Running: program.c
 | ccomp | -O2 | Default | left-to-right execution ordering |`4` |
 | ccomp | -O2 | Default | left-to-right execution ordering |`4` |
 | ccomp | -O2 | Default | left-to-right execution ordering |`4` |
+| ccomp | -O2 | Default | left-to-right execution ordering |`4` |
+| ccomp | -O3 | Default | left-to-right execution ordering |`4` |
 | ccomp | -O3 | Default | left-to-right execution ordering |`4` |
 | ccomp | -O3 | Default | left-to-right execution ordering |`4` |
 | ccomp | -O3 | Default | left-to-right execution ordering |`4` |
@@ -92,6 +101,7 @@ Running: program.c
 | tcc | -O1 | c18 | left-to-right execution ordering |`4` |
 | tcc | -O1 | c11 | left-to-right execution ordering |`4` |
 | tcc | -O1 | c1x | left-to-right execution ordering |`4` |
+| tcc | -O1 | gnu11 | left-to-right execution ordering |`4` |
 | tcc | -O2 | c99 | left-to-right execution ordering |`4` |
 | tcc | -O2 | c9x | left-to-right execution ordering |`4` |
 | tcc | -O2 | c89 | left-to-right execution ordering |`4` |
@@ -101,6 +111,7 @@ Running: program.c
 | tcc | -O2 | c18 | left-to-right execution ordering |`4` |
 | tcc | -O2 | c11 | left-to-right execution ordering |`4` |
 | tcc | -O2 | c1x | left-to-right execution ordering |`4` |
+| tcc | -O2 | gnu11 | left-to-right execution ordering |`4` |
 | tcc | -O3 | c99 | left-to-right execution ordering |`4` |
 | tcc | -O3 | c9x | left-to-right execution ordering |`4` |
 | tcc | -O3 | c89 | left-to-right execution ordering |`4` |
@@ -110,4 +121,5 @@ Running: program.c
 | tcc | -O3 | c18 | left-to-right execution ordering |`4` |
 | tcc | -O3 | c11 | left-to-right execution ordering |`4` |
 | tcc | -O3 | c1x | left-to-right execution ordering |`4` |
+| tcc | -O3 | gnu11 | left-to-right execution ordering |`4` |
 

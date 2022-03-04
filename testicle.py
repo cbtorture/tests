@@ -71,8 +71,43 @@ class TCC(Verifier):
         else:
             return False
 
+class CBMC(Verifier):
+    def __init__(self):
+        self.commands=["cbmc"]
+
+    def verify(self, filePath, expectedAssertion):
+        import subprocess
+        
+        # Execute the binary
+        info = subprocess.run(self.commands+[filePath],cwd=".", stdout=open("/dev/null"), stderr=open("/dev/null"))
+        exitCode = info.returncode
+
+        if exitCode == 0:
+            return True
+        else:
+            return False
+
+class ESBMC(Verifier):
+    def __init__(self):
+        self.commands=["esbmc"]
+
+    def verify(self, filePath, expectedAssertion):
+        import subprocess
+        
+        # Execute the binary
+        info = subprocess.run(self.commands+[filePath],cwd=".", stdout=open("/dev/null"),stderr=open("/dev/null"))
+        exitCode = info.returncode
+
+        if exitCode == 0:
+            return True
+        else:
+            return False
+
 verifiers=[
 ]
+
+verifiers.append(CBMC())
+verifiers.append(ESBMC())
 
 """
 Compilers all really share some of the same flags.
@@ -131,6 +166,10 @@ fillUpCompilers()
 
 
 def verifyFile(path, expectedAssertion):
+    print("Running program: %s"%path)
+    print()
+    print("Expected assetion: %s"%expectedAssertion)
+    print()
     print("| Verifier | Arguments | Assertion expected | Assertion result |")
     print("| --- | --- | --- | --- |")
     for verifier in verifiers:

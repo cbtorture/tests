@@ -178,7 +178,10 @@ def verifyFile(path, expectedAssertion, reportFile):
     report+="Expected assetion: %s"%expectedAssertion
     report+="\n"
     report+="| Verifier | Arguments | Assertion expected | Assertion result |"
+    report+="\n"
     report+="| --- | --- | --- | --- |"
+    report+="\n"
+    
     for verifier in verifiers:
         result = verifier.verify(path, expectedAssertion)
 
@@ -189,6 +192,7 @@ def verifyFile(path, expectedAssertion, reportFile):
             
 
         report+="|"+str(verifier) + "| "+str(verifier.commands) +"| `"+expectedAssertion+"` | "+result  + "|"
+        report+="\n"
 
     f=open(reportFile,"w")
     f.write(report)

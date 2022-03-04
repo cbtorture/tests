@@ -72,10 +72,8 @@ def comp(compiler, option, std, file):
 	elif int(result) == 4:
 		observation="left-to-right execution ordering"
 
-	version=subprocess.getoutput(compiler+" -v")
-
 	output=""
-	output="| %s | %s | %s | %s | `%s` |" % (compiler, version, option, std, result)
+	output="| %s | %s | %s | `%s` |" % (compiler, option, std, result)
 	output+=""+observation+" |"
 
 	return output

@@ -10,6 +10,7 @@ compilers=[
 
 # List of options to try
 options=[
+		"-O0",
 		"-O1",
 		"-O2",
 		"-O3",
@@ -21,7 +22,21 @@ stds=[
         "c9x",
         "c89",
         "c90",
-        "c2x"
+        "c2x",
+        "c17",
+        "c18",
+        "c11",
+        "c1x",
+        "gnu11",
+        "iso9899:1990",
+        "iso9899:199409",
+        "gnu89",
+        "gnu90",
+        "iso9899:1999",
+        "gnu99",
+        "iso9899:2011",
+        "iso9899:2017",
+        "gnu17"
 ]
 
 # Results
@@ -57,16 +72,18 @@ def comp(compiler, option, std, file):
 	elif int(result) == 4:
 		observation="left-to-right execution ordering"
 
+	version=subprocess.getoutput(compiler+" -v")
+
 	output=""
-	output="| %s | %s | %s | %s |" % (compiler, option, std, observation)
-	output+=result+" |"
+	output="| %s | %s | %s | %s | `%s` |" % (compiler, version, option, std, result)
+	output+=""+observation+" |"
 
 	return output
 
 def test(file):
 	print("Running: %s"%file)
 	print()
-	output="|compiler|options| std |result|observation|\n"
+	output="| Compiler | Options| Standard | `result` | Observation |\n"
 	output+="|----|----|----|---|---|"+"\n"
 	for compiler in compilers:
 		for option in options:
@@ -75,4 +92,4 @@ def test(file):
 
 	print(output)
 
-test("examples/tristan/2arg_funccall_eval_ordering.c")
+test("program.c")

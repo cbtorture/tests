@@ -165,13 +165,16 @@ def fillUpCompilers():
 fillUpCompilers()
 
 
-def verifyFile(path, expectedAssertion):
-    print("Running program: %s"%path)
-    print()
-    print("Expected assetion: %s"%expectedAssertion)
-    print()
-    print("| Verifier | Arguments | Assertion expected | Assertion result |")
-    print("| --- | --- | --- | --- |")
+def verifyFile(path, expectedAssertion, reportFile):
+    print("Running tests for program '%s' with assertion (%s)..."%(path, expectedAssertion))
+
+    report=""
+    report+="Running program: %s"%path
+    report+="\n"
+    report+="Expected assetion: %s"%expectedAssertion
+    report+="\n"
+    report+="| Verifier | Arguments | Assertion expected | Assertion result |"
+    report+="| --- | --- | --- | --- |"
     for verifier in verifiers:
         result = verifier.verify(path, expectedAssertion)
 
@@ -181,10 +184,32 @@ def verifyFile(path, expectedAssertion):
             result="❌️"
             
 
-        print("|"+str(verifier) + "| "+str(verifier.commands) +"| "+expectedAssertion+"| "+result  + "|")
+        report+="|"+str(verifier) + "| "+str(verifier.commands) +"| "+expectedAssertion+"| "+result  + "|"
+
+    f=open(reportFile,"w")
+    f.write(report)
+    f.close()
 
 #verifyFile("test.c", "1==1")
 
-#F1
-verifyFile("functions/f1/program_analysis.c", "result == 4")
-#verifyFile("functions/f1/program_analysis2.c", "result == 5")
+#F1 (left-to-right test)
+verifyFile("functions/f1/program_analysis.c", "result == 4", "f1_lr_report.md")
+
+#F1 (right-to-left test)
+# TODO: Can disable as only one other permutation exists
+verifyFile("functions/f1/program_analysis2.c", "result == 5", "f1_rl_report.md")
+
+#F2 (left-to-right test)
+verifyFile("functions/f2/program_analysis.c", "result == 11", "f2_rl_report.md")
+
+#F2 (right-to-left test)
+# TODO: Can disable as only one other permutation exists
+verifyFile("functions/f2/program_analysis2.c", "result == 13", "f2_lr_report.md")
+
+
+#L1 (left-to-right)
+verifyFile("lists/l1/program_analysis.c", "result[0] == 1 && result[1] == 2", "l1_lr_report.md")
+
+#L1 (right-to-left test)
+# TODO: Can disbale as only one other permutation exists
+verifyFile("lists/l1/program_analysis2.c", "result[0] == 2 && result[1] == 1", "l1_rl_report.md")

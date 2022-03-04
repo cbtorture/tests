@@ -1,5 +1,7 @@
 Running program: functions/f2/program_analysis.c
+
 Expected assetion: result == 11
+
 | Verifier | Arguments | Assertion expected | Assertion result |
 | --- | --- | --- | --- |
 |CBMC| ['cbmc']| `result == 11` | ❌️|

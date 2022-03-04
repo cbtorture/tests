@@ -1,5 +1,7 @@
 Running program: lists/l1/program_analysis2.c
+
 Expected assetion: result[0] == 2 && result[1] == 1
+
 | Verifier | Arguments | Assertion expected | Assertion result |
 | --- | --- | --- | --- |
 |CBMC| ['cbmc']| `result[0] == 2 && result[1] == 1` | ❌️|

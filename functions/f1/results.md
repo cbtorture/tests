@@ -1,6 +1,6 @@
 Running: program.c
 
-|compiler|options| std |`result`|observation|
+| Compiler | Options| Standard | `result` | Observation |
 |----|----|----|---|---|
 | gcc | -O0 | c99 | `5` |right-to-left execution ordering |
 | gcc | -O0 | c9x | `5` |right-to-left execution ordering |

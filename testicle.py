@@ -155,9 +155,13 @@ def fillUpCompilers():
             verifier=GCC(["-std=%s"%std, option])
             verifiers.append(verifier)
 
+    for option in options:
+        for std in stds:
             verifier=Clang(["-std=%s"%std, option])
             verifiers.append(verifier)
-
+            
+    for option in options:
+        for std in stds:
             verifier=TCC(["-std=%s"%std, option])
             verifiers.append(verifier)
 
@@ -184,7 +188,7 @@ def verifyFile(path, expectedAssertion, reportFile):
             result="❌️"
             
 
-        report+="|"+str(verifier) + "| "+str(verifier.commands) +"| "+expectedAssertion+"| "+result  + "|"
+        report+="|"+str(verifier) + "| "+str(verifier.commands) +"| `"+expectedAssertion+"` | "+result  + "|"
 
     f=open(reportFile,"w")
     f.write(report)

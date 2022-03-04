@@ -174,9 +174,9 @@ def verifyFile(path, expectedAssertion, reportFile):
 
     report=""
     report+="Running program: %s"%path
-    report+="\n"
+    report+="\n\n"
     report+="Expected assetion: %s"%expectedAssertion
-    report+="\n"
+    report+="\n\n"
     report+="| Verifier | Arguments | Assertion expected | Assertion result |"
     report+="\n"
     report+="| --- | --- | --- | --- |"

@@ -344,3 +344,13 @@ verifyFile("functions/f4/program_analysis2.c", "result[0] == 3 && result[1] == 2
 
 
 
+
+
+#L3: Multi-dimensional array initialization order
+verifyFile("lists/l3/program_analysis.c", "arrayOfArrays[0][0] == 1 && arrayOfArrays[0][1] == 2 && arrayOfArrays[1][0] == 3 && arrayOfArrays[1][1] == 4 && arrayOfArrays[2][0] == 5 && arrayOfArrays[2][1] == 6", "lists/l3/l3_row_major.md")
+
+
+
+
+
+

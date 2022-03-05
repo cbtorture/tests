@@ -16,7 +16,7 @@ int global = 0;
 void dummyFunc(int dummyInput, int dummyInput2)
 {
         /* I LIVE IN YOUR WALLS */
-        printf("dummyFunc(%d, %d)\n", dummyInput, dummyInput2);
+        /* printf("dummyFunc(%d, %d)\n", dummyInput, dummyInput2); */
 }
 
 int store[4] = {0,0,0,0};
@@ -24,7 +24,7 @@ int store[4] = {0,0,0,0};
 int f(int x)
 {
         store[global] = x;
-        printf("f(%d): global=%d\n", x, global);
+        /* printf("f(%d): global=%d\n", x, global); */
         global++;
         return 0;
 }

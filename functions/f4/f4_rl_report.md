@@ -19,7 +19,7 @@ int global = 0;
 void dummyFunc(int dummyInput, int dummyInput2)
 {
         /* I LIVE IN YOUR WALLS */
-        printf("dummyFunc(%d, %d)\n", dummyInput, dummyInput2);
+        /* printf("dummyFunc(%d, %d)\n", dummyInput, dummyInput2); */
 }
 
 int store[4] = {0,0,0,0};
@@ -27,7 +27,7 @@ int store[4] = {0,0,0,0};
 int f(int x)
 {
         store[global] = x;
-        printf("f(%d): global=%d\n", x, global);
+        /* printf("f(%d): global=%d\n", x, global); */
         global++;
         return 0;
 }
@@ -42,6 +42,9 @@ int g(int x, int y)
 int main()
 {
         funcPtr = malloc(sizeof(char*)*4);
+
+	if(funcPtr)
+	{
 
         *(funcPtr) = dummyFunc;
         *(funcPtr+1) = &dummyFunc;
@@ -63,6 +66,7 @@ int main()
 	assert(store[2] == 3);
 	assert(store[3] == 4);
 	
+	}
 
         return 0;
 }
@@ -74,7 +78,7 @@ Expected assertion: `result[0] == 3 && result[1] == 2 && result[2] == 1`
 | Verifier | Arguments | Assertion expected | Assertion result | Job hash |
 | --- | --- | --- | --- | --- |
 |CBMC| ['cbmc']| `result[0] == 3 && result[1] == 2 && result[2] == 1` | ✅️| `5ba82bd6b31c6f683a6898e4c1e89fb7` |
-|ESBMC| ['esbmc']| `result[0] == 3 && result[1] == 2 && result[2] == 1` | ❌️| `bacc94d48de173aa1de67a4d03c2e799` |
+|ESBMC| ['esbmc']| `result[0] == 3 && result[1] == 2 && result[2] == 1` | ✅️| `bacc94d48de173aa1de67a4d03c2e799` |
 |GCC| ['gcc', '-std=c99', '-O0', '-o', '3a9ba9292af33bad43be0df6c8ea389e']| `result[0] == 3 && result[1] == 2 && result[2] == 1` | ❌️| `3a9ba9292af33bad43be0df6c8ea389e` |
 |GCC| ['gcc', '-std=c9x', '-O0', '-o', '20d5fe108c7fb6a8407524452312f31b']| `result[0] == 3 && result[1] == 2 && result[2] == 1` | ❌️| `20d5fe108c7fb6a8407524452312f31b` |
 |GCC| ['gcc', '-std=c89', '-O0', '-o', 'a6b4de34f8a8d3a2b1988c3843215f32']| `result[0] == 3 && result[1] == 2 && result[2] == 1` | ❌️| `a6b4de34f8a8d3a2b1988c3843215f32` |

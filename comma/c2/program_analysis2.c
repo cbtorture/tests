@@ -20,11 +20,9 @@ int updateX(int sig)
 
 int main()
 {
-		/* 1, f(2, 3) */
-		/* 1, f(3, 2) */
 		int result = (updateX(1), f)(updateX(2), updateX(3));
 
-		/* 1, f(3, 2) */
+		/* 1, f(3, 2) with result=f(3,2) */
 		assert(map[0] == 1);
 		assert(map[1] == 3);
 		assert(map[2] == 2);

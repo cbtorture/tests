@@ -22,9 +22,9 @@ int main()
 {
 		int result = (updateX(1), f)(updateX(2), updateX(3));
 
-		/* 3, f(2, 1) => 4 */
-		assert(map[0] == 3);
-		assert(map[1] == 2);
+		/* 3, f(2, 1) with result=f(2,1) */
+		assert(map[0] == 2);
+		assert(map[1] == 3);
 		assert(map[2] == 1);
 		assert(result == 5);		
 

@@ -7,8 +7,7 @@ General tester
 class Verifier:
     def __init__(self, commands):
         self.commands = commands
-
-        self.jobHash = None
+        self.jobHash = ""
 
     def verify(self, filePath, expectedAssertion):
         return True
@@ -19,14 +18,17 @@ class Verifier:
     def getJobHash(self):
         stringID = self.__str__()+str(self.commands)
         import hashlib
+        jobHash = hashlib.md5(stringID.encode()).hexdigest()
 
-        if self.jobHash == None:
-            self.jobHash = hashlib.md5(stringID.encode()).hexdigest()
+        if self.jobHash == "":
+            self.jobHash = jobHash
         
         return self.jobHash
 
 class GCC(Verifier):
     def __init__(self, commands):
+        Verifier.__init__(self, commands)
+        
         self.commands = ["gcc"]+commands
 
         "Set output binary name"
@@ -49,6 +51,8 @@ class GCC(Verifier):
 
 class Clang(Verifier):
     def __init__(self, commands):
+        Verifier.__init__(self, commands)
+        
         self.commands = ["clang"]+commands
 
         "Set output binary name"
@@ -71,6 +75,8 @@ class Clang(Verifier):
 
 class TCC(Verifier):
     def __init__(self, commands):
+        Verifier.__init__(self, commands)
+        
         self.commands = ["tcc"]+commands
 
         "Set output binary name"
@@ -93,6 +99,8 @@ class TCC(Verifier):
 
 class CBMC(Verifier):
     def __init__(self):
+        Verifier.__init__(self, [])
+        
         self.commands=["cbmc"]
 
     def verify(self, filePath, expectedAssertion):
@@ -109,6 +117,8 @@ class CBMC(Verifier):
 
 class ESBMC(Verifier):
     def __init__(self):
+        Verifier.__init__(self, [])
+        
         self.commands=["esbmc"]
 
     def verify(self, filePath, expectedAssertion):

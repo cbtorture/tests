@@ -198,14 +198,26 @@ def fillUpCompilers():
 
 
 
+def getProgram(file):
+    programCode=""
+    f=open(file, "r")
+    programCode=f.read()
+    f.close()
+
+    return programCode
 
 def verifyFile(path, expectedAssertion, reportFile):
     print("Running tests for program '%s' with assertion (%s)..."%(path, expectedAssertion))
 
     report=""
-    report+="Running program: %s"%path
+    report+="Running program: `%s`"%path
+    report+="\n"
+    report+="```c"
+    report+="%s"%(getProgram(path))
+    report+="```"
+    report+="\n"
     report+="\n\n"
-    report+="Expected assetion: %s"%expectedAssertion
+    report+="Expected assertion: `%s`"%expectedAssertion
     report+="\n\n"
     report+="| Verifier | Arguments | Assertion expected | Assertion result | Job hash |"
     report+="\n"

@@ -8,6 +8,8 @@ class Verifier:
     def __init__(self, commands):
         self.commands = commands
 
+        self.jobHash = None
+
     def verify(self, filePath, expectedAssertion):
         return True
 
@@ -17,9 +19,11 @@ class Verifier:
     def getJobHash(self):
         stringID = self.__str__()+str(self.commands)
         import hashlib
-        jobHash = hashlib.md5(stringID.encode()).hexdigest()
+
+        if self.jobHash == None:
+            self.jobHash = hashlib.md5(stringID.encode()).hexdigest()
         
-        return jobHash
+        return self.jobHash
 
 class GCC(Verifier):
     def __init__(self, commands):

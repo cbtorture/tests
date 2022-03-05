@@ -253,6 +253,11 @@ def init():
 
 init()
 
+############################################################
+## Below are all the ones tested, explicit'd and analysied #
+############################################################
+
+
 
 #F1 (left-to-right test)
 verifyFile("functions/f1/program_analysis.c", "result == 4", "functions/f1/f1_lr_report.md")
@@ -260,14 +265,24 @@ verifyFile("functions/f1/program_analysis.c", "result == 4", "functions/f1/f1_lr
 #F1 (right-to-left test)
 verifyFile("functions/f1/program_analysis2.c", "result == 5", "functions/f1/f1_rl_report.md")
 
+#L1 (left-to-right)
+verifyFile("lists/l1/program_analysis.c", "result[0] == 1 && result[1] == 2", "lists/l1/l1_lr_report.md")
+
+#L1 (right-to-left test)
+verifyFile("lists/l1/program_analysis2.c", "result[0] == 2 && result[1] == 1", "lists/l1/l1_rl_report.md")
+
+#####################
+## Below still TODO #
+#####################
+
+
+
+
 #F2 (left-to-right test)
 verifyFile("functions/f2/program_analysis.c", "result == 11", "functions/f2/f2_rl_report.md")
 
 #F2 (right-to-left test)
 verifyFile("functions/f2/program_analysis2.c", "result == 13", "functions/f2/f2_lr_report.md")
 
-#L1 (left-to-right)
-verifyFile("lists/l1/program_analysis.c", "result[0] == 1 && result[1] == 2", "lists/l1/l1_lr_report.md")
+# NOTE: After analysisng the above it seems only the top two are true
 
-#L1 (right-to-left test)
-verifyFile("lists/l1/program_analysis2.c", "result[0] == 2 && result[1] == 1", "lists/l1/l1_rl_report.md")

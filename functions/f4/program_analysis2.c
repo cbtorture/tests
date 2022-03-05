@@ -54,6 +54,8 @@ int main()
         * is undetermined as a function can occur
         * there in the form of g(arg1, arg2)
         * and arg1 and arg2 can be in any order
+	*
+	* left to right sequencing between these two sections though
         */
 	 (funcPtr[ g( f(1), f(2) ) ])( f(3), f(4) );
 	

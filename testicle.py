@@ -327,14 +327,16 @@ verifyFile("lists/l2/program_analysis.c", "result[0] == 1 && result[1] == 2 && r
 verifyFile("lists/l2/program_analysis2.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "lists/l2/l2_rl_report.md");
 
 
-#F2 (left-to-right test)
-verifyFile("functions/f2/program_analysis2.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f2/f2_rl_report.md")
-
 #F2 (right-to-left test)
-verifyFile("functions/f2/program_analysis.c", "result[0] == 1 && result[1] == 2 && result[2] == 3", "functions/f2/f2_lr_report.md")
+verifyFile("functions/f2/program_analysis2.c", "orderArray[0] == 3 && orderArray[1] == 2 && orderArray[2] == 1", "functions/f2/f2_rl_report.md")
+
+#F2 (left-to-right test)
+verifyFile("functions/f2/program_analysis.c", "orderArray[0] == 1 && orderArray[1] == 2 && orderArray[2] == 3", "functions/f2/f2_lr_report.md")
 
 
 
+
+# TODO: CLean up bottom ones: sanity only
 
 
 #L3: Multi-dimensional array initialization order

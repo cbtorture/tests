@@ -40,6 +40,9 @@ int main()
 {
         funcPtr = malloc(sizeof(char*)*4);
 
+	if(funcPtr)
+	{
+
         *(funcPtr) = dummyFunc;
         *(funcPtr+1) = &dummyFunc;
         *(funcPtr+2) = &dummyFunc;
@@ -60,6 +63,7 @@ int main()
 	assert(store[2] == 4);
 	assert(store[3] == 3);
 	
+	}
 
         return 0;
 }

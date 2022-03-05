@@ -207,7 +207,7 @@ def verifyFile(path, expectedAssertion, reportFile):
             result="❌️"
             
 
-        report+="|"+str(verifier) + "| "+str(verifier.commands) +"| `"+expectedAssertion+"` | "+result  + "| "+verifier.getJobHash()+" |"
+        report+="|"+str(verifier) + "| "+str(verifier.commands) +"| `"+expectedAssertion+"` | "+result  + "| `"+verifier.getJobHash()+"` |"
         report+="\n"
 
     f=open(reportFile,"w")

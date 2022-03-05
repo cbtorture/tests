@@ -286,3 +286,14 @@ verifyFile("functions/f2/program_analysis.c", "result[0] == 1 && result[1] == 2 
 
 # NOTE: After analysisng the above it seems only the top two are true
 
+
+
+
+
+
+verifyFile("functions/f4/program_analysis.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f4/f4_rl_report.md")
+verifyFile("functions/f4/program_analysis2.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f4/f2_4l_report.md")
+
+
+
+

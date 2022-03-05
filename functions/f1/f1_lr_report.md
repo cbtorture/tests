@@ -1,6 +1,7 @@
 Running program: `functions/f1/program_analysis.c`
 
-```c#include<assert.h>
+```c
+#include<assert.h>
 #include<stdio.h>
 
 int globalCounter = 0;

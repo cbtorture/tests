@@ -22,11 +22,9 @@ int main()
 
 	assert(arrayOfArrays[1][0] == 3);
 	assert(arrayOfArrays[1][1] == 4);
-	
+
 	assert(arrayOfArrays[2][0] == 5);
 	assert(arrayOfArrays[2][1] == 6);
-	
-	
-	
+
 	return 0;
 }

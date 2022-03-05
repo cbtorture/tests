@@ -356,8 +356,7 @@ verifyFile("lists/l3/program_analysis2.c", "arrayOfArrays[0][0] == 1 && arrayOfA
 #TODO: Still add this test
 
 #C2
-
-verifyFile("comma/c2/program_analysis.c", "TODO", "comma/c2/expected_comma_lr_func_lr.md")
-verifyFile("comma/c2/program_analysis2.c", "TODO", "comma/c2/expected_comma_lr_func_rl.md")
-verifyFile("comma/c2/program_analysis3.c", "TODO", "comma/c2/unexpected_comma_lr_func_lr.md")
-verifyFile("comma/c2/program_analysis4.c", "TODO", "comma/c2/unexpected_comma_lr_func_rl.md")
+verifyFile("comma/c2/program_analysis.c", "comma-operator ltr (spec), func. args. ltr (unspec)", "comma/c2/expected_comma_lr_func_lr.md")
+verifyFile("comma/c2/program_analysis2.c", "comma-operator ltr (spec), func. args. rtl (unspec)", "comma/c2/expected_comma_lr_func_rl.md")
+verifyFile("comma/c2/program_analysis3.c", "comma-operator rtl (wrong), func. args. ltr (unspec)", "comma/c2/unexpected_comma_rl_func_lr.md")
+verifyFile("comma/c2/program_analysis4.c", "comma-operator rtl (wrong), func. args. rtl (unspec)", "comma/c2/unexpected_comma_rl_func_rl.md")

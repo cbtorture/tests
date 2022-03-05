@@ -14,9 +14,19 @@ class Verifier:
     def __str__(self):
         return self.__class__.__name__
 
+    def getJobHash(self):
+        stringID = self.__str__()+str(self.commands)
+        import hashlib
+        jobHash = hashlib.md5(stringID.encode()).hexdigest()
+        
+        return jobHash
+
 class GCC(Verifier):
     def __init__(self, commands):
         self.commands = ["gcc"]+commands
+
+        "Set output binary name"
+        self.commands = self.commands + ["-o", self.getJobHash()]
 
     def verify(self, filePath, expectedAssertion):
         import subprocess
@@ -25,7 +35,7 @@ class GCC(Verifier):
         subprocess.run(self.commands+[filePath],stdout=open("/dev/null"))
 
         # Execute the binary
-        info = subprocess.run(["./a.out"],cwd=".", shell=True,stderr=open("/dev/null"))
+        info = subprocess.run(["./"+self.getJobHash()],cwd=".", shell=True,stderr=open("/dev/null"))
         exitCode = info.returncode
 
         if exitCode == 0:
@@ -37,6 +47,9 @@ class Clang(Verifier):
     def __init__(self, commands):
         self.commands = ["clang"]+commands
 
+        "Set output binary name"
+        self.commands = self.commands + ["-o", self.getJobHash()]
+
     def verify(self, filePath, expectedAssertion):
         import subprocess
         
@@ -44,7 +57,7 @@ class Clang(Verifier):
         subprocess.run(self.commands+[filePath],stdout=open("/dev/null"))
 
         # Execute the binary
-        info = subprocess.run(["./a.out"],cwd=".", shell=True, stderr=open("/dev/null"))
+        info = subprocess.run(["./"+self.getJobHash()],cwd=".", shell=True, stderr=open("/dev/null"))
         exitCode = info.returncode
 
         if exitCode == 0:
@@ -56,6 +69,9 @@ class TCC(Verifier):
     def __init__(self, commands):
         self.commands = ["tcc"]+commands
 
+        "Set output binary name"
+        self.commands = self.commands + ["-o", self.getJobHash()]
+
     def verify(self, filePath, expectedAssertion):
         import subprocess
         
@@ -63,7 +79,7 @@ class TCC(Verifier):
         subprocess.run(self.commands+[filePath],stdout=open("/dev/null"))
         
         # Execute the binary
-        info = subprocess.run(["./a.out"],cwd=".", shell=True,stderr=open("/dev/null"))
+        info = subprocess.run(["./"+self.getJobHash()],cwd=".", shell=True,stderr=open("/dev/null"))
         exitCode = info.returncode
 
         if exitCode == 0:
@@ -177,9 +193,9 @@ def verifyFile(path, expectedAssertion, reportFile):
     report+="\n\n"
     report+="Expected assetion: %s"%expectedAssertion
     report+="\n\n"
-    report+="| Verifier | Arguments | Assertion expected | Assertion result |"
+    report+="| Verifier | Arguments | Assertion expected | Assertion result | Job hash |"
     report+="\n"
-    report+="| --- | --- | --- | --- |"
+    report+="| --- | --- | --- | --- | --- |"
     report+="\n"
     
     for verifier in verifiers:
@@ -191,7 +207,7 @@ def verifyFile(path, expectedAssertion, reportFile):
             result="❌️"
             
 
-        report+="|"+str(verifier) + "| "+str(verifier.commands) +"| `"+expectedAssertion+"` | "+result  + "|"
+        report+="|"+str(verifier) + "| "+str(verifier.commands) +"| `"+expectedAssertion+"` | "+result  + "| "+verifier.getJobHash()+" |"
         report+="\n"
 
     f=open(reportFile,"w")

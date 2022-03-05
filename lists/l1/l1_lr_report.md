@@ -1,6 +1,36 @@
-Running program: lists/l1/program_analysis.c
+Running program: `lists/l1/program_analysis.c`
+```c#include<assert.h>
+#include<stdio.h>
 
-Expected assetion: result[0] == 1 && result[1] == 2
+/* Global data */
+int count = 0;
+
+/* Counting function */
+int counter()
+{
+	count++;
+	return count;
+}
+
+int main()
+{
+	/**
+	* Calculate the array
+	*
+	* Ex1: {1, 2}
+	* Ex2: {2, 1}
+	*/
+	int result[2] = {counter(), counter()};
+
+	assert(result[0] == 1);
+	assert(result[1] == 2);
+
+	return 0;
+}
+```
+
+
+Expected assertion: `result[0] == 1 && result[1] == 2`
 
 | Verifier | Arguments | Assertion expected | Assertion result | Job hash |
 | --- | --- | --- | --- | --- |

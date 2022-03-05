@@ -1,6 +1,32 @@
-Running program: functions/f1/program_analysis2.c
+Running program: `functions/f1/program_analysis2.c`
+```c#include<assert.h>
+#include<stdio.h>
 
-Expected assetion: result == 5
+int globalCounter = 0;
+
+int counter()
+{
+	globalCounter++;
+	return globalCounter;
+}
+
+int f(int x1, int x2)
+{
+	return (x1*2)+x2;
+}
+
+int main()
+{
+	int result = f(counter(), counter());
+
+	assert(result == 5);
+
+	return 0;
+}
+```
+
+
+Expected assertion: `result == 5`
 
 | Verifier | Arguments | Assertion expected | Assertion result | Job hash |
 | --- | --- | --- | --- | --- |

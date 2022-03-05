@@ -45,7 +45,6 @@ int main()
         *(funcPtr+2) = &dummyFunc;
         *(funcPtr+3) = &dummyFunc;
 
-        //(funcPtr[f(1)])(f(2), f(3));
         /**
         * Sequence between func[] and func args 
         * But within func determination (then[])

@@ -19,4 +19,6 @@ int main()
 	int result = f(counter(), counter());
 
 	assert(result == 4);
+
+	return 0;
 }

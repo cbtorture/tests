@@ -351,7 +351,13 @@ verifyFile("lists/l3/program_analysis.c", "arrayOfArrays[0][0] == 1 && arrayOfAr
 verifyFile("lists/l3/program_analysis2.c", "arrayOfArrays[0][0] == 1 && arrayOfArrays[0][1] == 4 && arrayOfArrays[1][0] == 2 && arrayOfArrays[1][1] == 5 && arrayOfArrays[2][0] == 3 && arrayOfArrays[2][1] == 6", "lists/l3/l3_col_major.md")
 
 
+#C1 (Comma-operator sanity tests)
 
+#TODO: Still add this test
 
+#C2
 
-
+verifyFile("comma/c2/program_analysis.c", "TODO", "comma/c2/expected_comma_lr_func_lr.md")
+verifyFile("comma/c2/program_analysis2.c", "TODO", "comma/c2/expected_comma_lr_func_rl.md")
+verifyFile("comma/c2/program_analysis3.c", "TODO", "comma/c2/unexpected_comma_lr_func_lr.md")
+verifyFile("comma/c2/program_analysis4.c", "TODO", "comma/c2/unexpected_comma_lr_func_rl.md")

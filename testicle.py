@@ -49,6 +49,30 @@ class GCC(Verifier):
         else:
             return False
 
+class CompCert(Verifier):
+    def __init__(self, commands):
+        Verifier.__init__(self, commands)
+        
+        self.commands = ["ccomp"]+commands
+
+        "Set output binary name"
+        self.commands = self.commands + ["-o", self.getJobHash()]
+
+    def verify(self, filePath, expectedAssertion):
+        import subprocess
+        
+        # Compile firstly
+        subprocess.run(self.commands+[filePath],stdout=open("/dev/null"))
+
+        # Execute the binary
+        info = subprocess.run(["./"+self.getJobHash()],cwd=".", shell=True,stderr=open("/dev/null"))
+        exitCode = info.returncode
+
+        if exitCode == 0:
+            return True
+        else:
+            return False
+
 class Clang(Verifier):
     def __init__(self, commands):
         Verifier.__init__(self, commands)
@@ -140,6 +164,25 @@ verifiers.append(CBMC())
 verifiers.append(ESBMC())
 
 """
+Compcert doesn't really share the standards settings
+but it does share the settings for optimization levels.
+
+So we will generate verifiers for that here
+"""
+def fillUpCompCert():
+	# List of options to try
+	options=[
+		"-O0",
+                "-O1",
+                "-O2",
+                "-O3",
+	]
+
+	for option in options:
+		verifier=CompCert([option])
+		verifiers.append(verifier)
+
+"""
 Compilers all really share some of the same flags.
 
 Atleast these do, so generate verifiers with these flags
@@ -156,7 +199,7 @@ def fillUpCompilers():
     		"-O2",
     		"-O3",
     ]
-    
+
     # List of standards
     stds=[
             "c99",
@@ -250,6 +293,10 @@ def init():
     """
     fillUpCompilers()
 
+    """
+    Generate verifier combinations for `CompCert`
+    """
+    fillUpCompCert()
 
 init()
 

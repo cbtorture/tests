@@ -353,6 +353,10 @@ verifyFile("lists/l3/program_analysis2.c", "arrayOfArrays[0][0] == 1 && arrayOfA
 verifyFile("functions/f4/program_analysis.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f4/f4_rl_report.md")
 verifyFile("functions/f4/program_analysis2.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f4/f2_4l_report.md")
 
+# F69 (Test that recursion does not do anything, i.e. it is level-order)
+verifyFile("functions/f69/recursive_lr.c", "left to right", "functions/f69/f69_lr_report.md")
+verifyFile("functions/f69/recursive_rl.c", "right to left", "functions/f69/f69_rl_report.md")
+
 
 #C1 (Comma-operator sanity tests)
 

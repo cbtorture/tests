@@ -23,4 +23,6 @@ int main()
 
 	assert(result[0] == 2);
 	assert(result[1] == 1);
+
+	return 0;
 }

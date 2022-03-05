@@ -1,5 +1,7 @@
 Running program: `lists/l1/program_analysis2.c`
-```c#include<assert.h>
+
+```c
+#include<assert.h>
 #include<stdio.h>
 
 /* Global data */

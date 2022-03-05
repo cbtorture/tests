@@ -269,7 +269,7 @@ def verifyFile(path, expectedAssertion, reportFile):
     
     for i in range(len(verifiers)):
         verifier=verifiers[i]
-        print("Running %s/%s" % (str(i), str(len(verifiers))))
+        print("Running %s/%s" % (str(i+1), str(len(verifiers))))
         result = verifier.verify(path, expectedAssertion)
 
         if result == True:

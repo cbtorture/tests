@@ -279,10 +279,10 @@ verifyFile("lists/l1/program_analysis2.c", "result[0] == 2 && result[1] == 1", "
 
 
 #F2 (left-to-right test)
-verifyFile("functions/f2/program_analysis.c", "result == 11", "functions/f2/f2_rl_report.md")
+verifyFile("functions/f2/program_analysis2.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f2/f2_rl_report.md")
 
 #F2 (right-to-left test)
-verifyFile("functions/f2/program_analysis2.c", "result == 13", "functions/f2/f2_lr_report.md")
+verifyFile("functions/f2/program_analysis.c", "result[0] == 1 && result[1] == 2 && result[2] == 3", "functions/f2/f2_lr_report.md")
 
 # NOTE: After analysisng the above it seems only the top two are true
 

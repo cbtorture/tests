@@ -9,21 +9,27 @@ int counter()
 	return globalCounter;
 }
 
-int f(int x1, int x2, int x3)
+char orderArray[3] = {0,0,0};
+
+void f(int x1, int x2, int x3)
 {
-	return (x1*2)+x2+x3*3;
+	orderArray[0] = x1;
+	orderArray[1] = x2;
+	orderArray[2] = x3;
 }
 
 int main()
 {
-	/**
-	* 1,2,3 => (1*2)+2+3*3 => 13
-	* 3,2,1 => (3*2)+2+1*3 => 11
-	*/
-	int subRes1 = counter();
-	int subRes2 = counter();
-	int subRes3 = counter();
-	int result = f(subRes3, subRes2, subRes1);
+	int arg1 = counter();
+	int arg2 = counter();
+	int arg3 = counter();
+	
+	f(arg3, arg2, arg1);
 
-	assert(result == 11);
+	assert(orderArray[0] == 3);
+	assert(orderArray[1] == 2);
+	assert(orderArray[2] == 1);
+
+	
+	return 0;
 }

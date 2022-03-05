@@ -23,4 +23,6 @@ int main()
 	int result = f(counter(), counter(), counter());
 
 	assert(result == 11);
+
+	return 0;
 }

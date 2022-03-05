@@ -212,7 +212,7 @@ def verifyFile(path, expectedAssertion, reportFile):
     report=""
     report+="Running program: `%s`"%path
     report+="\n\n"
-    report+="```c"
+    report+="```c\n"
     report+="%s"%(getProgram(path))
     report+="```"
     report+="\n"

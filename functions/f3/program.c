@@ -1,22 +1,28 @@
 #include<assert.h>
 #include<stdio.h>
 
-int globalCounter = 0;
+int global = 0;
 
-int counter()
+int f(int x1)
 {
-	globalCounter++;
-	return globalCounter;
-}
-
-int f(int x1, int x2)
-{
-	return (x1*2)+x2;
+	global = x1;
+	return 0;
 }
 
 int main()
 {
-	int result = f(counter(), counter());
+	int result = f(1)+f(2);
 
-	printf("%d\n", result);
+	/**
+	* left to right
+	* assert(global == 2);
+	*/
+	
+	/**
+	* right-to-left
+	* assert(global == 1)
+	*/
+	
+	
+	return 0;
 }

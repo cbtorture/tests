@@ -23,5 +23,5 @@ int main()
 
 	assert(result[0] == 3);
 	assert(result[1] == 2);
-  assert(result[2] == 1;
+  	assert(result[2] == 1;
 }

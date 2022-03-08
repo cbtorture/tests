@@ -16,7 +16,7 @@ int main()
 	/**
 	* right to left
 	*/
-  assert(global == 1);
+  	assert(global == 1);
 	
 	return 0;
 }

@@ -1,17 +1,13 @@
 #include<assert.h>
 
+int map[3] = {0,0,0};
+int x = 0;
+int id = 0;
+
 int f(int x1, int x2)
 {
 	return (x1*2)+x2;
 }
-
-
-int map[3] = {0,0,0};
-
-int x = 0;
-
-
-int id = 0;
 
 int updateX(int sig)
 {

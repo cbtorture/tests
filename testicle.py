@@ -312,43 +312,46 @@ verifyFile("functions/f1/program_analysis.c", "result == 4", "functions/f1/f1_lr
 #F1 (right-to-left test)
 verifyFile("functions/f1/program_analysis2.c", "result == 5", "functions/f1/f1_rl_report.md")
 
+
 #L1 (left-to-right)
 verifyFile("lists/l1/program_analysis.c", "result[0] == 1 && result[1] == 2", "lists/l1/l1_lr_report.md")
 
 #L1 (right-to-left test)
 verifyFile("lists/l1/program_analysis2.c", "result[0] == 2 && result[1] == 1", "lists/l1/l1_rl_report.md")
 
-#####################
-## Below still TODO #
-#####################
 
+#L2 (left-to-right)
+verifyFile("lists/l2/program_analysis.c", "result[0] == 1 && result[1] == 2 && result[2] == 3", "lists/l2/l2_lr_report.md");
 
+#L2 (right-to-left)
+verifyFile("lists/l2/program_analysis2.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "lists/l2/l2_rl_report.md");
 
-
-#F2 (left-to-right test)
-verifyFile("functions/f2/program_analysis2.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f2/f2_rl_report.md")
 
 #F2 (right-to-left test)
-verifyFile("functions/f2/program_analysis.c", "result[0] == 1 && result[1] == 2 && result[2] == 3", "functions/f2/f2_lr_report.md")
+verifyFile("functions/f2/program_analysis2.c", "orderArray[0] == 3 && orderArray[1] == 2 && orderArray[2] == 1", "functions/f2/f2_rl_report.md")
 
-# NOTE: After analysisng the above it seems only the top two are true
-
-
-
-
-
-
-verifyFile("functions/f4/program_analysis.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f4/f4_rl_report.md")
-verifyFile("functions/f4/program_analysis2.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f4/f2_4l_report.md")
+#F2 (left-to-right test)
+verifyFile("functions/f2/program_analysis.c", "orderArray[0] == 1 && orderArray[1] == 2 && orderArray[2] == 3", "functions/f2/f2_lr_report.md")
 
 
 
 
+# TODO: CLean up bottom ones: sanity only
 
 
 #L3: Multi-dimensional array initialization order
 verifyFile("lists/l3/program_analysis.c", "arrayOfArrays[0][0] == 1 && arrayOfArrays[0][1] == 2 && arrayOfArrays[1][0] == 3 && arrayOfArrays[1][1] == 4 && arrayOfArrays[2][0] == 5 && arrayOfArrays[2][1] == 6", "lists/l3/l3_row_major.md")
 verifyFile("lists/l3/program_analysis2.c", "arrayOfArrays[0][0] == 1 && arrayOfArrays[0][1] == 4 && arrayOfArrays[1][0] == 2 && arrayOfArrays[1][1] == 5 && arrayOfArrays[2][0] == 3 && arrayOfArrays[2][1] == 6", "lists/l3/l3_col_major.md")
+
+
+
+# TODO: Clean up the rest at the bottom
+
+# NOTE: After analysisng the above it seems only the top two are true
+
+
+verifyFile("functions/f4/program_analysis.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f4/f4_rl_report.md")
+verifyFile("functions/f4/program_analysis2.c", "result[0] == 3 && result[1] == 2 && result[2] == 1", "functions/f4/f2_4l_report.md")
 
 
 #C1 (Comma-operator sanity tests)

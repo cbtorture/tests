@@ -8,7 +8,7 @@ Example C code to test along with tools to run tests and spit out nicely formatt
 Simply run:
 
 ```bash
-./testicle.py
+./tester.py
 ```
 
 Then `.md` files will be left in the `functions/*` and `lists/*` directories with reports.

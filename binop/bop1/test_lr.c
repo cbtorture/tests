@@ -16,13 +16,10 @@ int main()
 {
 	int j = count(1) + count(2);
 
-
 	assert(arr[0] == 1);
 	assert(arr[1] == 2);
 	
 	j++;
-
-	
 
 	return 0;
 }

@@ -349,11 +349,14 @@ verifyFile("lists/l3/program_analysis2.c", "arrayOfArrays[0][0] == 1 && arrayOfA
 
 
 
-# TODO: Add Binary Operator tests here
-# TODO: Add binop1
+# Add Binary Operator tests here
+
 # BinOp1 (Binary Operator tests)
 verifyFile("binop/bop1/test_lr.c", "result[0] == 1 && result[1] == 2", "binop/bop1/bop1_lr_report.md")
 verifyFile("binop/bop1/test_rl.c", "result[0] == 2 && result[1] == 1", "binop/bop1/bop1_rl_report.md")
+
+
+
 
 
 # NOTE: After analysisng the above it seems only the top two are true
